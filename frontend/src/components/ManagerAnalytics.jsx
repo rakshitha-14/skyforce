@@ -4,6 +4,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import { Briefcase, TrendingUp, Percent, CheckCircle } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const COLORS = {
   critical: '#f43f5e', // rose-500
@@ -13,6 +14,7 @@ const COLORS = {
 };
 
 const ManagerAnalytics = () => {
+  const { isDark } = useTheme();
   const [timeframe, setTimeframe] = useState('30days');
 
   // Dynamic datasets depending on chosen timeframe
@@ -155,16 +157,16 @@ const ManagerAnalytics = () => {
   return (
     <div className="space-y-8">
       {/* Top Filter and Controls */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-5 rounded-2xl shadow-lg">
         <div>
-          <h2 className="text-xl font-bold text-slate-100">Enterprise Productivity Intelligence</h2>
-          <p className="text-slate-400 text-xs mt-1">Real-time analytical graphs mapping team velocity and workload allocations.</p>
+          <h2 className="text-xl font-bold text-slate-100 light:text-slate-900">Enterprise Productivity Intelligence</h2>
+          <p className="text-slate-400 light:text-slate-500 text-xs mt-1">Real-time analytical graphs mapping team velocity and workload allocations.</p>
         </div>
         <div>
           <select
             value={timeframe}
             onChange={(e) => setTimeframe(e.target.value)}
-            className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-slate-300 focus:outline-none focus:border-blue-500 cursor-pointer"
+            className="bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-300 light:text-slate-800 focus:outline-none focus:border-blue-500 cursor-pointer"
           >
             <option value="7days">Past 7 Days</option>
             <option value="30days">Past 30 Days</option>
@@ -175,43 +177,43 @@ const ManagerAnalytics = () => {
 
       {/* High-level KPI Summary Ribbon */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-md flex items-center gap-4">
-          <div className="p-3.5 bg-blue-950/50 border border-blue-950 text-blue-400 rounded-xl">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-5 rounded-2xl shadow-md flex items-center gap-4">
+          <div className="p-3.5 bg-blue-950/50 light:bg-blue-50 border border-blue-950 light:border-blue-100 text-blue-400 light:text-blue-600 rounded-xl">
             <Briefcase size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Active Projects</span>
-            <span className="text-2xl font-extrabold text-slate-100 block mt-0.5">{metrics.projects}</span>
+            <span className="text-[10px] text-slate-500 light:text-slate-400 font-bold uppercase tracking-wider block">Active Projects</span>
+            <span className="text-2xl font-extrabold text-slate-100 light:text-slate-900 block mt-0.5">{metrics.projects}</span>
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-md flex items-center gap-4">
-          <div className="p-3.5 bg-violet-950/50 border border-violet-950 text-violet-400 rounded-xl">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-5 rounded-2xl shadow-md flex items-center gap-4">
+          <div className="p-3.5 bg-violet-950/50 light:bg-violet-50 border border-violet-950 light:border-violet-100 text-violet-400 light:text-violet-600 rounded-xl">
             <TrendingUp size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Velocity (Tasks/Wk)</span>
-            <span className="text-2xl font-extrabold text-slate-100 block mt-0.5">{metrics.velocity}</span>
+            <span className="text-[10px] text-slate-500 light:text-slate-400 font-bold uppercase tracking-wider block">Velocity (Tasks/Wk)</span>
+            <span className="text-2xl font-extrabold text-slate-100 light:text-slate-900 block mt-0.5">{metrics.velocity}</span>
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-md flex items-center gap-4">
-          <div className="p-3.5 bg-indigo-950/50 border border-indigo-950 text-indigo-400 rounded-xl">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-5 rounded-2xl shadow-md flex items-center gap-4">
+          <div className="p-3.5 bg-indigo-950/50 light:bg-indigo-50 border border-indigo-950 light:border-indigo-100 text-indigo-400 light:text-indigo-600 rounded-xl">
             <Percent size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Team Productivity</span>
-            <span className="text-2xl font-extrabold text-slate-100 block mt-0.5">{metrics.productivity}</span>
+            <span className="text-[10px] text-slate-500 light:text-slate-400 font-bold uppercase tracking-wider block">Team Productivity</span>
+            <span className="text-2xl font-extrabold text-slate-100 light:text-slate-900 block mt-0.5">{metrics.productivity}</span>
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-md flex items-center gap-4">
-          <div className="p-3.5 bg-emerald-950/50 border border-emerald-950 text-emerald-400 rounded-xl">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-5 rounded-2xl shadow-md flex items-center gap-4">
+          <div className="p-3.5 bg-emerald-950/50 light:bg-emerald-50 border border-emerald-950 light:border-emerald-100 text-emerald-400 light:text-emerald-600 rounded-xl">
             <CheckCircle size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Attendance Rate</span>
-            <span className="text-2xl font-extrabold text-slate-100 block mt-0.5">{metrics.attendance}</span>
+            <span className="text-[10px] text-slate-500 light:text-slate-400 font-bold uppercase tracking-wider block">Attendance Rate</span>
+            <span className="text-2xl font-extrabold text-slate-100 light:text-slate-900 block mt-0.5">{metrics.attendance}</span>
           </div>
         </div>
       </div>
@@ -220,18 +222,18 @@ const ManagerAnalytics = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Project Completion Velocity (Line Chart) */}
-        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
           <div>
-            <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide">1. Project Completion Velocity</h3>
-            <p className="text-slate-500 text-xs mt-0.5">Planned vs. Actual cumulative tickets closed.</p>
+            <h3 className="text-sm font-bold text-slate-200 light:text-slate-900 uppercase tracking-wide">1. Project Completion Velocity</h3>
+            <p className="text-slate-500 light:text-slate-400 text-xs mt-0.5">Planned vs. Actual cumulative tickets closed.</p>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={velocityData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="name" stroke="#64748b" fontSize={11} />
-                <YAxis stroke="#64748b" fontSize={11} />
-                <Tooltip contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '10px' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "#1e293b" : "#e2e8f0"} />
+                <XAxis dataKey="name" stroke={isDark ? "#64748b" : "#475569"} fontSize={11} />
+                <YAxis stroke={isDark ? "#64748b" : "#475569"} fontSize={11} />
+                <Tooltip contentStyle={{ backgroundColor: isDark ? '#0f172a' : '#ffffff', border: isDark ? '1px solid #334155' : '1px solid #cbd5e1', borderRadius: '10px', color: isDark ? '#f8fafc' : '#0f172a' }} />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
                 <Line type="monotone" dataKey="Planned" stroke="#3b82f6" strokeWidth={2.5} activeDot={{ r: 6 }} />
                 <Line type="monotone" dataKey="Actual" stroke="#10b981" strokeWidth={2.5} />
@@ -241,20 +243,20 @@ const ManagerAnalytics = () => {
         </div>
 
         {/* Resource & Workload Allocation (Stacked Bar Chart) */}
-        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
           <div>
-            <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide">2. Resource & Workload Allocation</h3>
-            <p className="text-slate-500 text-xs mt-0.5">Open vs finished tickets grouped per employee.</p>
+            <h3 className="text-sm font-bold text-slate-200 light:text-slate-900 uppercase tracking-wide">2. Resource & Workload Allocation</h3>
+            <p className="text-slate-500 light:text-slate-400 text-xs mt-0.5">Open vs finished tickets grouped per employee.</p>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={workloadData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="name" stroke="#64748b" fontSize={11} />
-                <YAxis stroke="#64748b" fontSize={11} />
-                <Tooltip contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '10px' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "#1e293b" : "#e2e8f0"} />
+                <XAxis dataKey="name" stroke={isDark ? "#64748b" : "#475569"} fontSize={11} />
+                <YAxis stroke={isDark ? "#64748b" : "#475569"} fontSize={11} />
+                <Tooltip contentStyle={{ backgroundColor: isDark ? '#0f172a' : '#ffffff', border: isDark ? '1px solid #334155' : '1px solid #cbd5e1', borderRadius: '10px', color: isDark ? '#f8fafc' : '#0f172a' }} />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
-                <Bar dataKey="To Do" stackId="a" fill="#334155" />
+                <Bar dataKey="To Do" stackId="a" fill={isDark ? "#334155" : "#cbd5e1"} />
                 <Bar dataKey="In Progress" stackId="a" fill="#3b82f6" />
                 <Bar dataKey="Completed" stackId="a" fill="#10b981" />
               </BarChart>
@@ -263,10 +265,10 @@ const ManagerAnalytics = () => {
         </div>
 
         {/* Company Attendance Patterns (Area Chart) */}
-        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
           <div>
-            <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide">3. Company-wide Attendance & Peak Hour Patterns</h3>
-            <p className="text-slate-500 text-xs mt-0.5">Weekly check-in percentages alongside average punch hour (AM).</p>
+            <h3 className="text-sm font-bold text-slate-200 light:text-slate-900 uppercase tracking-wide">3. Company-wide Attendance & Peak Hour Patterns</h3>
+            <p className="text-slate-500 light:text-slate-400 text-xs mt-0.5">Weekly check-in percentages alongside average punch hour (AM).</p>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -277,10 +279,10 @@ const ManagerAnalytics = () => {
                     <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="name" stroke="#64748b" fontSize={11} />
-                <YAxis stroke="#64748b" fontSize={11} />
-                <Tooltip contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '10px' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={isDark ? "#1e293b" : "#e2e8f0"} />
+                <XAxis dataKey="name" stroke={isDark ? "#64748b" : "#475569"} fontSize={11} />
+                <YAxis stroke={isDark ? "#64748b" : "#475569"} fontSize={11} />
+                <Tooltip contentStyle={{ backgroundColor: isDark ? '#0f172a' : '#ffffff', border: isDark ? '1px solid #334155' : '1px solid #cbd5e1', borderRadius: '10px', color: isDark ? '#f8fafc' : '#0f172a' }} />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
                 <Area type="monotone" dataKey="Check-In Rate" stroke="#8b5cf6" fillOpacity={1} fill="url(#colorRate)" strokeWidth={2} />
                 <Line type="monotone" dataKey="Peak Hour" stroke="#f59e0b" strokeWidth={2} dot={false} />
@@ -290,16 +292,16 @@ const ManagerAnalytics = () => {
         </div>
 
         {/* Task Priority Distribution (Pie Chart) */}
-        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col justify-between space-y-4">
           <div>
-            <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide">4. Task Priority Distribution</h3>
-            <p className="text-slate-500 text-xs mt-0.5">Proportional breakdown of active workload urgency levels.</p>
+            <h3 className="text-sm font-bold text-slate-200 light:text-slate-900 uppercase tracking-wide">4. Task Priority Distribution</h3>
+            <p className="text-slate-500 light:text-slate-400 text-xs mt-0.5">Proportional breakdown of active workload urgency levels.</p>
           </div>
           <div className="h-64 w-full flex flex-col sm:flex-row items-center justify-around gap-4">
             <div className="w-48 h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
-                  <Tooltip contentStyle={{ backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '10px' }} />
+                  <Tooltip contentStyle={{ backgroundColor: isDark ? '#0f172a' : '#ffffff', border: isDark ? '1px solid #334155' : '1px solid #cbd5e1', borderRadius: '10px', color: isDark ? '#f8fafc' : '#0f172a' }} />
                   <Pie
                     data={priorityData}
                     cx="50%"
@@ -321,8 +323,8 @@ const ManagerAnalytics = () => {
               {priorityData.map(item => (
                 <div key={item.name} className="flex items-center gap-3 text-xs">
                   <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-                  <span className="text-slate-400 font-medium">{item.name}:</span>
-                  <span className="text-slate-200 font-bold font-mono">{item.value} issues</span>
+                  <span className="text-slate-400 light:text-slate-600 font-medium">{item.name}:</span>
+                  <span className="text-slate-200 light:text-slate-800 font-bold font-mono">{item.value} issues</span>
                 </div>
               ))}
             </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axiosInstance from '../api/axiosInstance';
 import { useToast } from '../context/ToastContext';
 import DashboardLayout from './layout/DashboardLayout';
+import UserProfile from './UserProfile';
 import { Users, Shield, CheckCircle2, Clock3, XCircle } from 'lucide-react';
 
 const AdminDashboard = () => {
@@ -88,53 +89,53 @@ const AdminDashboard = () => {
       <div className="space-y-8">
         {activeTab === 'dashboard' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl shadow-lg">
+            <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-3xl shadow-lg">
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div>
-                  <h2 className="text-sm uppercase tracking-widest text-slate-500">Approved Users</h2>
-                  <p className="text-4xl font-extrabold text-slate-100">{totalApproved}</p>
+                  <h2 className="text-sm uppercase tracking-widest text-slate-500 light:text-slate-400">Approved Users</h2>
+                  <p className="text-4xl font-extrabold text-slate-100 light:text-slate-900">{totalApproved}</p>
                 </div>
                 <CheckCircle2 size={28} className="text-emerald-400" />
               </div>
-              <p className="text-sm text-slate-400">Approved users can sign in and access dashboards.</p>
+              <p className="text-sm text-slate-400 light:text-slate-500">Approved users can sign in and access dashboards.</p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl shadow-lg">
+            <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-3xl shadow-lg">
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div>
-                  <h2 className="text-sm uppercase tracking-widest text-slate-500">Pending Approval</h2>
-                  <p className="text-4xl font-extrabold text-slate-100">{totalPending}</p>
+                  <h2 className="text-sm uppercase tracking-widest text-slate-500 light:text-slate-400">Pending Approval</h2>
+                  <p className="text-4xl font-extrabold text-slate-100 light:text-slate-900">{totalPending}</p>
                 </div>
                 <Clock3 size={28} className="text-amber-400" />
               </div>
-              <p className="text-sm text-slate-400">New registrations waiting for admin approval.</p>
+              <p className="text-sm text-slate-400 light:text-slate-500">New registrations waiting for admin approval.</p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl shadow-lg">
+            <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-6 rounded-3xl shadow-lg">
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div>
-                  <h2 className="text-sm uppercase tracking-widest text-slate-500">Total Users</h2>
-                  <p className="text-4xl font-extrabold text-slate-100">{users.length}</p>
+                  <h2 className="text-sm uppercase tracking-widest text-slate-500 light:text-slate-400">Total Users</h2>
+                  <p className="text-4xl font-extrabold text-slate-100 light:text-slate-900">{users.length}</p>
                 </div>
                 <Users size={28} className="text-blue-400" />
               </div>
-              <p className="text-sm text-slate-400">All employees and managers registered in the system.</p>
+              <p className="text-sm text-slate-400 light:text-slate-500">All employees and managers registered in the system.</p>
             </div>
           </div>
         )}
 
         {activeTab === 'pending' && (
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl shadow-xl p-6">
-            <h2 className="text-xl font-bold text-slate-100 mb-4">Pending User Approvals</h2>
+          <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 rounded-3xl shadow-xl p-6">
+            <h2 className="text-xl font-bold text-slate-100 light:text-slate-900 mb-4">Pending User Approvals</h2>
             {loading ? (
-              <div className="text-slate-500">Loading pending users...</div>
+              <div className="text-slate-500 light:text-slate-400">Loading pending users...</div>
             ) : pendingUsers.length === 0 ? (
-              <div className="text-slate-500">No users are currently pending approval.</div>
+              <div className="text-slate-500 light:text-slate-400">No users are currently pending approval.</div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
+                    <tr className="border-b border-slate-800 light:border-slate-200 text-slate-400 light:text-slate-500 text-xs uppercase tracking-wider">
                       <th className="py-3 px-4">Name</th>
                       <th className="py-3 px-4">Email</th>
                       <th className="py-3 px-4">Role</th>
@@ -143,24 +144,24 @@ const AdminDashboard = () => {
                       <th className="py-3 px-4 text-right">Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300 text-sm">
+                  <tbody className="divide-y divide-slate-800/50 light:divide-slate-200/50 text-slate-300 light:text-slate-700 text-sm">
                     {pendingUsers.map((user) => (
-                      <tr key={user._id} className="hover:bg-slate-800/20 transition-colors">
-                        <td className="py-4 px-4 font-bold text-slate-200">{user.name}</td>
-                        <td className="py-4 px-4 font-mono text-xs">{user.email}</td>
+                      <tr key={user._id} className="hover:bg-slate-800/20 light:hover:bg-slate-100/50 transition-colors">
+                        <td className="py-4 px-4 font-bold text-slate-200 light:text-slate-850">{user.name}</td>
+                        <td className="py-4 px-4 font-mono text-xs text-slate-400 light:text-slate-600">{user.email}</td>
                         <td className="py-4 px-4">{user.role}</td>
                         <td className="py-4 px-4">{user.department || 'General'}</td>
                         <td className="py-4 px-4">{user.designation || 'Staff'}</td>
                                 <td className="py-4 px-4 text-right space-x-2">
                           <button
                             onClick={() => handleApprove(user._id)}
-                            className="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/35 hover:border-emerald-500/70 text-emerald-300 px-3 py-2 rounded-xl text-xs font-semibold transition-all"
+                            className="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/35 hover:border-emerald-500/70 text-emerald-300 light:text-emerald-700 px-3 py-2 rounded-xl text-xs font-semibold transition-all"
                           >
                             Approve
                           </button>
                           <button
                             onClick={() => handleReject(user._id)}
-                            className="bg-rose-600/20 hover:bg-rose-600/40 border border-rose-500/35 hover:border-rose-500/70 text-rose-300 px-3 py-2 rounded-xl text-xs font-semibold transition-all"
+                            className="bg-rose-600/20 hover:bg-rose-600/40 border border-rose-500/35 hover:border-rose-500/70 text-rose-300 light:text-rose-700 px-3 py-2 rounded-xl text-xs font-semibold transition-all"
                           >
                             Reject
                           </button>
@@ -175,17 +176,17 @@ const AdminDashboard = () => {
         )}
 
         {activeTab === 'all-users' && (
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl shadow-xl p-6">
-            <h2 className="text-xl font-bold text-slate-100 mb-4">All Registered Users</h2>
+          <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 rounded-3xl shadow-xl p-6">
+            <h2 className="text-xl font-bold text-slate-100 light:text-slate-900 mb-4">All Registered Users</h2>
             {loading ? (
-              <div className="text-slate-500">Loading users...</div>
+              <div className="text-slate-500 light:text-slate-400">Loading users...</div>
             ) : users.length === 0 ? (
-              <div className="text-slate-500">No users found.</div>
+              <div className="text-slate-500 light:text-slate-400">No users found.</div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
+                    <tr className="border-b border-slate-800 light:border-slate-200 text-slate-400 light:text-slate-500 text-xs uppercase tracking-wider">
                       <th className="py-3 px-4">Name</th>
                       <th className="py-3 px-4">Email</th>
                       <th className="py-3 px-4">Role</th>
@@ -195,11 +196,11 @@ const AdminDashboard = () => {
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300 text-sm">
+                  <tbody className="divide-y divide-slate-800/50 light:divide-slate-200/50 text-slate-300 light:text-slate-700 text-sm">
                     {users.map((user) => (
-                      <tr key={user._id} className="hover:bg-slate-800/20 transition-colors">
-                        <td className="py-4 px-4 font-bold text-slate-200">{user.name}</td>
-                        <td className="py-4 px-4 font-mono text-xs">{user.email}</td>
+                      <tr key={user._id} className="hover:bg-slate-800/20 light:hover:bg-slate-100/50 transition-colors">
+                        <td className="py-4 px-4 font-bold text-slate-200 light:text-slate-850">{user.name}</td>
+                        <td className="py-4 px-4 font-mono text-xs text-slate-400 light:text-slate-600">{user.email}</td>
                         <td className="py-4 px-4">{user.role}</td>
                         <td className="py-4 px-4">{user.department || 'General'}</td>
                         <td className="py-4 px-4">{user.designation || 'Staff'}</td>
@@ -220,14 +221,14 @@ const AdminDashboard = () => {
                             user.isBlocked ? (
                               <button
                                 onClick={() => handleUnblock(user._id)}
-                                className="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/35 hover:border-emerald-500/70 text-emerald-300 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer"
+                                className="bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/35 hover:border-emerald-500/70 text-emerald-300 light:text-emerald-700 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer animate-fade-in"
                               >
                                 Unblock
                               </button>
                             ) : (
                               <button
                                 onClick={() => handleBlock(user._id)}
-                                className="bg-rose-600/20 hover:bg-rose-600/40 border border-rose-500/35 hover:border-rose-500/70 text-rose-300 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer"
+                                className="bg-rose-600/20 hover:bg-rose-600/40 border border-rose-500/35 hover:border-rose-500/70 text-rose-300 light:text-rose-700 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer animate-fade-in"
                               >
                                 Block
                               </button>
@@ -242,6 +243,8 @@ const AdminDashboard = () => {
             )}
           </div>
         )}
+
+        {activeTab === 'profile' && <UserProfile />}
       </div>
     </DashboardLayout>
   );

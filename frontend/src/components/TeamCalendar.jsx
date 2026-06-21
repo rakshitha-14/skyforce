@@ -180,22 +180,22 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
   return (
     <div className="space-y-6">
       {/* Calendar Header / Toolbar */}
-      <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-lg">
+      <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-4 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
         {/* Navigations & Range */}
         <div className="flex items-center gap-3">
-          <div className="flex bg-slate-950 border border-slate-800 rounded-xl p-0.5">
-            <button onClick={handlePrev} className="p-2 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-900 transition-colors cursor-pointer">
+          <div className="flex bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 rounded-xl p-0.5">
+            <button onClick={handlePrev} className="p-2 text-slate-400 light:text-slate-500 hover:text-slate-200 light:hover:text-slate-900 rounded-lg hover:bg-slate-900 light:hover:bg-slate-100 transition-colors cursor-pointer">
               <ChevronLeft size={16} />
             </button>
-            <button onClick={handleToday} className="px-3 text-xs font-bold text-slate-300 hover:text-white rounded-lg hover:bg-slate-900 transition-colors cursor-pointer">
+            <button onClick={handleToday} className="px-3 text-xs font-bold text-slate-300 light:text-slate-700 hover:text-white light:hover:text-slate-950 rounded-lg hover:bg-slate-900 light:hover:bg-slate-100 transition-colors cursor-pointer">
               Today
             </button>
-            <button onClick={handleNext} className="p-2 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-900 transition-colors cursor-pointer">
+            <button onClick={handleNext} className="p-2 text-slate-400 light:text-slate-500 hover:text-slate-200 light:hover:text-slate-900 rounded-lg hover:bg-slate-900 light:hover:bg-slate-100 transition-colors cursor-pointer">
               <ChevronRight size={16} />
             </button>
           </div>
 
-          <h3 className="font-extrabold text-slate-200 tracking-wide text-sm sm:text-base">
+          <h3 className="font-extrabold text-slate-200 light:text-slate-900 tracking-wide text-sm sm:text-base">
             {viewMode === 'month' && currentDate.toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
             {viewMode === 'week' && `Week of ${weekDays[0].toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`}
             {viewMode === 'agenda' && 'Schedule Agenda Ledger'}
@@ -205,22 +205,22 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
         {/* Filters Panel */}
         <div className="flex flex-wrap items-center gap-3">
           {/* Project filter */}
-          <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-xl text-xs">
+          <div className="flex items-center gap-1.5 bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 px-3 py-1.5 rounded-xl text-xs">
             <Filter size={12} className="text-slate-500" />
             <select
               value={filterProject}
               onChange={(e) => setFilterProject(e.target.value)}
-              className="bg-transparent text-slate-300 focus:outline-none focus:ring-0 cursor-pointer"
+              className="bg-transparent text-slate-300 light:text-slate-700 focus:outline-none focus:ring-0 cursor-pointer"
             >
-              <option value="" className="bg-slate-900">All Projects</option>
+              <option value="" className="bg-slate-905 light:bg-white text-slate-300 light:text-slate-750">All Projects</option>
               {projects.map(p => (
-                <option key={p._id} value={p._id} className="bg-slate-900">{p.name}</option>
+                <option key={p._id} value={p._id} className="bg-slate-905 light:bg-white text-slate-300 light:text-slate-750">{p.name}</option>
               ))}
             </select>
           </div>
 
           {/* View Selection Toggle */}
-          <div className="flex bg-slate-950 border border-slate-800 rounded-xl p-0.5 text-xs">
+          <div className="flex bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 rounded-xl p-0.5 text-xs">
             {['month', 'week', 'agenda'].map(mode => (
               <button
                 key={mode}
@@ -228,7 +228,7 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
                 className={`px-3 py-1.5 rounded-lg font-bold capitalize transition-all cursor-pointer ${
                   viewMode === mode 
                     ? 'bg-blue-600 text-white shadow-md' 
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-400 light:text-slate-550 hover:text-slate-200 light:hover:text-slate-900'
                 }`}
               >
                 {mode === 'agenda' ? 'Agenda' : `${mode} view`}
@@ -242,7 +242,7 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
 
       {/* Month View Grid */}
       {viewMode === 'month' && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-lg">
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 rounded-2xl p-4 shadow-lg">
           {/* Days header row */}
           <div className="grid grid-cols-7 gap-2 mb-2 text-center text-xs font-bold text-slate-500 uppercase tracking-widest">
             {daysOfWeek.map(d => (
@@ -259,13 +259,15 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
               return (
                 <div
                   key={idx}
-                  className={`min-h-[100px] border border-slate-800 p-2 rounded-xl flex flex-col justify-between transition-all duration-200 ${
-                    cell.isCurrentMonth ? 'bg-slate-950/40 text-slate-200' : 'bg-slate-950/10 text-slate-600 border-slate-850'
-                  } ${isToday ? 'ring-1 ring-blue-500/80 bg-blue-950/10 border-blue-800/40' : ''}`}
+                  className={`min-h-[100px] border border-slate-800 light:border-slate-200 p-2 rounded-xl flex flex-col justify-between transition-all duration-200 ${
+                    cell.isCurrentMonth 
+                      ? 'bg-slate-955/40 light:bg-white text-slate-200 light:text-slate-800' 
+                      : 'bg-slate-955/10 light:bg-slate-50/50 text-slate-600 light:text-slate-400 border-slate-850 light:border-slate-150'
+                  } ${isToday ? 'ring-1 ring-blue-500/80 bg-blue-950/10 light:bg-blue-50/80 border-blue-800/40' : ''}`}
                 >
                   <div className="flex justify-between items-center mb-2">
                     <span className={`text-[10px] font-bold font-mono px-1.5 py-0.5 rounded ${
-                      isToday ? 'bg-blue-600 text-white shadow' : 'text-slate-400'
+                      isToday ? 'bg-blue-600 text-white shadow' : 'text-slate-400 light:text-slate-500'
                     }`}>
                       {cell.date.getDate()}
                     </span>
@@ -291,7 +293,7 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
 
       {/* Week View Columns */}
       {viewMode === 'week' && (
-        <div className="grid grid-cols-1 md:grid-cols-7 gap-4 bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-7 gap-4 bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 p-4 rounded-2xl shadow-lg">
           {weekDays.map((day, idx) => {
             const dayEvents = getEventsForDate(day);
             const isToday = formatDateString(day) === formatDateString(new Date());
@@ -299,17 +301,17 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
             return (
               <div 
                 key={idx} 
-                className={`flex flex-col min-h-[300px] bg-slate-950/40 border border-slate-800/80 rounded-xl p-3 space-y-3 ${
-                  isToday ? 'ring-1 ring-blue-500/80 bg-blue-950/10 border-blue-800/40' : ''
+                className={`flex flex-col min-h-[300px] bg-slate-955/40 light:bg-slate-50/30 border border-slate-800/80 light:border-slate-200 rounded-xl p-3 space-y-3 ${
+                  isToday ? 'ring-1 ring-blue-500/80 bg-blue-950/10 light:bg-blue-50/80 border-blue-800/40' : ''
                 }`}
               >
                 {/* Column header */}
-                <div className="text-center pb-2 border-b border-slate-900">
+                <div className="text-center pb-2 border-b border-slate-900 light:border-slate-200">
                   <div className="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider">
                     {daysOfWeek[idx]}
                   </div>
                   <div className={`text-base font-extrabold font-mono mt-0.5 px-2 py-0.5 rounded-full inline-block ${
-                    isToday ? 'bg-blue-600 text-white' : 'text-slate-300'
+                    isToday ? 'bg-blue-600 text-white' : 'text-slate-300 light:text-slate-850'
                   }`}>
                     {day.getDate()}
                   </div>
@@ -318,7 +320,7 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
                 {/* Day events */}
                 <div className="flex-grow space-y-2 overflow-y-auto max-h-[400px]">
                   {dayEvents.length === 0 ? (
-                    <div className="text-center py-6 text-[10px] text-slate-600 italic">No events</div>
+                    <div className="text-center py-6 text-[10px] text-slate-650 italic">No events</div>
                   ) : (
                     dayEvents.map((ev, evIdx) => (
                       <button
@@ -340,8 +342,8 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
 
       {/* Agenda Timeline View */}
       {viewMode === 'agenda' && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg space-y-4 max-w-3xl mx-auto">
-          <h4 className="text-sm font-bold text-slate-400 border-b border-slate-800 pb-3">Deadlines Ledger</h4>
+        <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 rounded-2xl p-6 shadow-lg space-y-4 max-w-3xl mx-auto">
+          <h4 className="text-sm font-bold text-slate-400 light:text-slate-500 border-b border-slate-800 light:border-slate-200 pb-3">Deadlines Ledger</h4>
           
           {agendaItems.length === 0 ? (
             <div className="text-center py-10 text-slate-500 text-sm">No scheduled targets mapped.</div>
@@ -351,31 +353,31 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
                 <div
                   key={idx}
                   onClick={() => setSelectedItem({ type: item.type, data: item.raw })}
-                  className="flex items-start gap-4 p-3.5 bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl cursor-pointer hover:shadow-lg transition-all group"
+                  className="flex items-start gap-4 p-3.5 bg-slate-955 light:bg-white border border-slate-800 light:border-slate-200 hover:border-slate-700 light:hover:border-slate-300 rounded-xl cursor-pointer hover:shadow-lg transition-all group"
                 >
-                  <div className="text-center min-w-[64px] bg-slate-900 border border-slate-850 p-2 rounded-xl">
+                  <div className="text-center min-w-[64px] bg-slate-900 light:bg-slate-50 border border-slate-850 light:border-slate-200 p-2 rounded-xl">
                     <div className="text-[10px] uppercase font-bold text-slate-500">
                       {item.date.toLocaleDateString(undefined, { month: 'short' })}
                     </div>
-                    <div className="text-lg font-extrabold text-slate-200 font-mono">
+                    <div className="text-lg font-extrabold text-slate-200 light:text-slate-800 font-mono">
                       {item.date.getDate()}
                     </div>
                   </div>
 
                   <div className="flex-grow space-y-1 min-w-0">
                     <div className="flex justify-between items-start gap-2">
-                      <h5 className="text-sm font-bold text-slate-200 group-hover:text-blue-400 transition-colors truncate">
+                      <h5 className="text-sm font-bold text-slate-200 light:text-slate-850 group-hover:text-blue-400 transition-colors truncate">
                         {item.title}
                       </h5>
                       <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold uppercase ${
                         item.type === 'project' 
-                          ? 'bg-blue-950/40 text-blue-400 border border-blue-800/50' 
-                          : 'bg-amber-950/40 text-amber-400 border border-amber-800/50'
+                          ? 'bg-blue-955/40 text-blue-400 border border-blue-800/50' 
+                          : 'bg-amber-955/40 text-amber-400 border border-amber-800/50'
                       }`}>
                         {item.type}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-400 line-clamp-1">{item.desc}</p>
+                    <p className="text-xs text-slate-400 light:text-slate-500 line-clamp-1">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -389,25 +391,25 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black/75 backdrop-blur-sm" onClick={() => setSelectedItem(null)} />
           
-          <div className="relative bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-6 z-10 text-slate-100">
+          <div className="relative bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-6 z-10 text-slate-100 light:text-slate-900">
             {/* Header */}
-            <div className="flex justify-between items-start pb-4 border-b border-slate-800">
+            <div className="flex justify-between items-start pb-4 border-b border-slate-800 light:border-slate-200">
               <div className="space-y-1">
                 <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-extrabold uppercase border ${
                   selectedItem.type === 'project'
-                    ? 'bg-blue-950/40 text-blue-400 border-blue-800/50'
-                    : 'bg-amber-950/40 text-amber-400 border-amber-800/50'
+                    ? 'bg-blue-955/40 text-blue-400 border-blue-800/50'
+                    : 'bg-amber-955/40 text-amber-400 border-amber-800/50'
                 }`}>
                   {selectedItem.type} Information
                 </span>
-                <h4 className="text-lg font-bold mt-1 text-slate-100">
+                <h4 className="text-lg font-bold mt-1 text-slate-100 light:text-slate-900">
                   {selectedItem.type === 'project' ? selectedItem.data.name : selectedItem.data.title}
                 </h4>
               </div>
               
               <button 
                 onClick={() => setSelectedItem(null)}
-                className="text-slate-400 hover:text-slate-200 p-1 rounded-lg hover:bg-slate-800 transition-colors"
+                className="text-slate-400 hover:text-slate-250 p-1 rounded-lg hover:bg-slate-800 light:hover:bg-slate-100 transition-colors"
               >
                 <X size={18} />
               </button>
@@ -417,47 +419,47 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
             <div className="space-y-4 text-xs">
               <div className="space-y-1.5">
                 <span className="text-slate-500 font-bold uppercase tracking-wider">Description</span>
-                <p className="bg-slate-950 border border-slate-800 p-3 rounded-xl text-slate-300 leading-relaxed max-h-[100px] overflow-y-auto">
+                <p className="bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 p-3 rounded-xl text-slate-300 light:text-slate-700 leading-relaxed max-h-[100px] overflow-y-auto">
                   {selectedItem.data.description}
                 </p>
               </div>
 
               {selectedItem.type === 'project' ? (
-                <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+                <div className="bg-slate-955 light:bg-slate-50 p-3 rounded-xl border border-slate-800 light:border-slate-200 space-y-2">
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Timeline:</span>
-                    <span className="font-mono font-bold text-slate-300">
+                    <span className="font-mono font-bold text-slate-300 light:text-slate-700">
                       {new Date(selectedItem.data.startDate).toLocaleDateString()} - {new Date(selectedItem.data.endDate).toLocaleDateString()}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Status:</span>
-                    <span className="bg-blue-950/40 text-blue-400 border border-blue-800/50 px-2 py-0.5 rounded font-extrabold uppercase text-[10px]">
+                    <span className="bg-blue-955/40 text-blue-400 border border-blue-800/50 px-2 py-0.5 rounded font-extrabold uppercase text-[10px]">
                       {selectedItem.data.status}
                     </span>
                   </div>
                 </div>
               ) : (
-                <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+                <div className="bg-slate-955 light:bg-slate-50 p-3 rounded-xl border border-slate-800 light:border-slate-200 space-y-2">
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Associated Project:</span>
-                    <span className="font-bold text-slate-300">{selectedItem.data.project?.name || 'Unassigned'}</span>
+                    <span className="font-bold text-slate-300 light:text-slate-700">{selectedItem.data.project?.name || 'Unassigned'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Priority:</span>
-                    <span className="font-bold text-slate-300">{selectedItem.data.priority}</span>
+                    <span className="font-bold text-slate-300 light:text-slate-700">{selectedItem.data.priority}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Assignee:</span>
-                    <span className="font-bold text-slate-300">{selectedItem.data.assignedTo?.name || 'Unassigned'}</span>
+                    <span className="font-bold text-slate-300 light:text-slate-700">{selectedItem.data.assignedTo?.name || 'Unassigned'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Due Date:</span>
-                    <span className="font-mono font-bold text-slate-300">{new Date(selectedItem.data.dueDate).toLocaleDateString()}</span>
+                    <span className="font-mono font-bold text-slate-300 light:text-slate-700">{new Date(selectedItem.data.dueDate).toLocaleDateString()}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500 font-bold uppercase">Status:</span>
-                    <span className="bg-purple-950/40 text-purple-400 border border-purple-800/50 px-2 py-0.5 rounded font-extrabold uppercase text-[10px]">
+                    <span className="bg-purple-955/40 text-purple-400 border border-purple-800/50 px-2 py-0.5 rounded font-extrabold uppercase text-[10px]">
                       {selectedItem.data.status}
                     </span>
                   </div>
@@ -466,10 +468,10 @@ const TeamCalendar = ({ projects = [], tasks = [], employees = [] }) => {
             </div>
 
             {/* Footer */}
-            <div className="flex justify-end pt-4 border-t border-slate-800">
+            <div className="flex justify-end pt-4 border-t border-slate-800 light:border-slate-200">
               <button
                 onClick={() => setSelectedItem(null)}
-                className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-4 py-2 rounded-xl transition-colors cursor-pointer"
+                className="bg-slate-805 hover:bg-slate-700 light:bg-slate-100 light:hover:bg-slate-200 text-slate-200 light:text-slate-800 font-bold px-4 py-2 rounded-xl transition-colors cursor-pointer"
               >
                 Close Details
               </button>

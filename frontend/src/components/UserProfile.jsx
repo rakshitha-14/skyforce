@@ -105,26 +105,26 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto">
+    <div className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto">
       {/* Header Banner */}
-      <div className="p-6 bg-gradient-to-r from-slate-950 to-slate-900 border-b border-slate-800 flex items-center justify-between">
+      <div className="p-6 bg-gradient-to-r from-slate-950 to-slate-900 light:from-slate-50 light:to-slate-100 border-b border-slate-800 light:border-slate-200 flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-slate-100">Account Administration</h2>
-          <p className="text-xs text-slate-500 mt-1">Configure profile details and manage credentials.</p>
+          <h2 className="text-xl font-bold text-slate-100 light:text-slate-900">Account Administration</h2>
+          <p className="text-xs text-slate-500 light:text-slate-400 mt-1">Configure profile details and manage credentials.</p>
         </div>
-        <div className="h-10 w-10 rounded-xl bg-slate-900 border border-slate-850 flex items-center justify-center text-blue-400">
+        <div className="h-10 w-10 rounded-xl bg-slate-900 light:bg-white border border-slate-850 light:border-slate-200 flex items-center justify-center text-blue-400 light:text-blue-600">
           <User size={20} />
         </div>
       </div>
 
       {/* Tabs Selector */}
-      <div className="flex border-b border-slate-850 bg-slate-900/60 p-1">
+      <div className="flex border-b border-slate-850 light:border-slate-200 bg-slate-900/60 light:bg-slate-50/50 p-1">
         <button
           onClick={() => setActiveTab('profile')}
           className={`flex items-center gap-2 px-5 py-3 text-xs font-bold transition-all rounded-xl cursor-pointer ${
             activeTab === 'profile'
               ? 'bg-blue-600 text-white shadow-md'
-              : 'text-slate-400 hover:text-slate-200'
+              : 'text-slate-400 light:text-slate-500 hover:text-slate-200 light:hover:text-slate-900'
           }`}
         >
           <User size={14} />
@@ -135,7 +135,7 @@ const UserProfile = () => {
           className={`flex items-center gap-2 px-5 py-3 text-xs font-bold transition-all rounded-xl cursor-pointer ${
             activeTab === 'security'
               ? 'bg-blue-600 text-white shadow-md'
-              : 'text-slate-400 hover:text-slate-200'
+              : 'text-slate-400 light:text-slate-500 hover:text-slate-200 light:hover:text-slate-900'
           }`}
         >
           <Shield size={14} />
@@ -144,14 +144,14 @@ const UserProfile = () => {
       </div>
 
       {/* Content Canvas */}
-      <div className="p-6 bg-slate-900/20">
+      <div className="p-6 bg-slate-900/20 light:bg-slate-50/20">
         {activeTab === 'profile' && (
           <form onSubmit={handleProfileSubmit} className="space-y-6 max-w-2xl">
             {profileMsg.text && (
               <div className={`p-3 text-xs rounded-xl flex items-center gap-2 border ${
                 profileMsg.type === 'success' 
-                  ? 'bg-emerald-950/20 text-emerald-450 border-emerald-900/50' 
-                  : 'bg-rose-950/20 text-rose-450 border-rose-900/50'
+                  ? 'bg-emerald-950/20 light:bg-emerald-50 text-emerald-450 light:text-emerald-700 border-emerald-900/50 light:border-emerald-200' 
+                  : 'bg-rose-950/20 light:bg-rose-50 text-rose-450 light:text-rose-700 border-rose-900/50 light:border-rose-200'
               }`}>
                 {profileMsg.type === 'success' ? <CheckCircle2 size={14} /> : <AlertCircle size={14} />}
                 <span>{profileMsg.text}</span>
@@ -160,32 +160,32 @@ const UserProfile = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block text-slate-400 text-xs font-bold mb-1.5 uppercase tracking-wide">Full Name</label>
+                <label className="block text-slate-400 light:text-slate-500 text-xs font-bold mb-1.5 uppercase tracking-wide">Full Name</label>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-200 light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-400 text-xs font-bold mb-1.5 uppercase tracking-wide">Job Title / Designation</label>
+                <label className="block text-slate-400 light:text-slate-500 text-xs font-bold mb-1.5 uppercase tracking-wide">Job Title / Designation</label>
                 <input
                   type="text"
                   value={designation}
                   onChange={(e) => setDesignation(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-200 light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-slate-400 text-xs font-bold mb-1.5 uppercase tracking-wide">Email Address</label>
+                <label className="block text-slate-400 light:text-slate-500 text-xs font-bold mb-1.5 uppercase tracking-wide">Email Address</label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-200 light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </div>
             </div>
@@ -212,8 +212,8 @@ const UserProfile = () => {
             {securityMsg.text && (
               <div className={`p-3 text-xs rounded-xl flex items-center gap-2 border ${
                 securityMsg.type === 'success' 
-                  ? 'bg-emerald-950/20 text-emerald-450 border-emerald-900/50' 
-                  : 'bg-rose-950/20 text-rose-450 border-rose-900/50'
+                  ? 'bg-emerald-950/20 light:bg-emerald-50 text-emerald-450 light:text-emerald-700 border-emerald-900/50 light:border-emerald-200' 
+                  : 'bg-rose-950/20 light:bg-rose-50 text-rose-450 light:text-rose-700 border-rose-900/50 light:border-rose-200'
               }`}>
                 {securityMsg.type === 'success' ? <CheckCircle2 size={14} /> : <AlertCircle size={14} />}
                 <span>{securityMsg.text}</span>
@@ -222,51 +222,51 @@ const UserProfile = () => {
 
             <div className="space-y-5">
               <div>
-                <label className="block text-slate-400 text-xs font-bold mb-1.5 uppercase tracking-wide">Current Password</label>
+                <label className="block text-slate-400 light:text-slate-500 text-xs font-bold mb-1.5 uppercase tracking-wide">Current Password</label>
                 <input
                   type="password"
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-200 light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-slate-400 text-xs font-bold mb-1.5 uppercase tracking-wide">New Password</label>
+                  <label className="block text-slate-400 light:text-slate-500 text-xs font-bold mb-1.5 uppercase tracking-wide">New Password</label>
                   <input
                     type="password"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-200 light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 text-xs font-bold mb-1.5 uppercase tracking-wide">Confirm New Password</label>
+                  <label className="block text-slate-400 light:text-slate-500 text-xs font-bold mb-1.5 uppercase tracking-wide">Confirm New Password</label>
                   <input
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-slate-950 light:bg-white border border-slate-800 light:border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-200 light:text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
               </div>
 
               {/* Password dynamic criteria list */}
-              <div className="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-2">
-                <span className="text-slate-500 text-[10px] uppercase font-bold tracking-wider">Complexity checklist</span>
+              <div className="bg-slate-950 light:bg-slate-50 p-4 rounded-xl border border-slate-850 light:border-slate-200 space-y-2">
+                <span className="text-slate-500 light:text-slate-405 text-[10px] uppercase font-bold tracking-wider">Complexity checklist</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   <div className="flex items-center gap-2">
                     {checks.length ? (
                       <CheckCircle2 size={14} className="text-emerald-500" />
                     ) : (
-                      <XCircle size={14} className="text-slate-650" />
+                      <XCircle size={14} className="text-slate-400 light:text-slate-500" />
                     )}
-                    <span className={checks.length ? 'text-emerald-400 font-medium' : 'text-slate-500'}>
+                    <span className={checks.length ? 'text-emerald-400 light:text-emerald-600 font-medium' : 'text-slate-500 light:text-slate-400'}>
                       At least 8 characters
                     </span>
                   </div>
@@ -275,9 +275,9 @@ const UserProfile = () => {
                     {checks.uppercase ? (
                       <CheckCircle2 size={14} className="text-emerald-500" />
                     ) : (
-                      <XCircle size={14} className="text-slate-650" />
+                      <XCircle size={14} className="text-slate-400 light:text-slate-500" />
                     )}
-                    <span className={checks.uppercase ? 'text-emerald-400 font-medium' : 'text-slate-500'}>
+                    <span className={checks.uppercase ? 'text-emerald-400 light:text-emerald-600 font-medium' : 'text-slate-500 light:text-slate-400'}>
                       Uppercase letter (A-Z)
                     </span>
                   </div>
@@ -286,9 +286,9 @@ const UserProfile = () => {
                     {checks.number ? (
                       <CheckCircle2 size={14} className="text-emerald-500" />
                     ) : (
-                      <XCircle size={14} className="text-slate-650" />
+                      <XCircle size={14} className="text-slate-400 light:text-slate-500" />
                     )}
-                    <span className={checks.number ? 'text-emerald-400 font-medium' : 'text-slate-500'}>
+                    <span className={checks.number ? 'text-emerald-400 light:text-emerald-600 font-medium' : 'text-slate-500 light:text-slate-400'}>
                       Contains a number (0-9)
                     </span>
                   </div>
@@ -297,9 +297,9 @@ const UserProfile = () => {
                     {checks.symbol ? (
                       <CheckCircle2 size={14} className="text-emerald-500" />
                     ) : (
-                      <XCircle size={14} className="text-slate-650" />
+                      <XCircle size={14} className="text-slate-400 light:text-slate-500" />
                     )}
-                    <span className={checks.symbol ? 'text-emerald-400 font-medium' : 'text-slate-500'}>
+                    <span className={checks.symbol ? 'text-emerald-400 light:text-emerald-600 font-medium' : 'text-slate-500 light:text-slate-400'}>
                       Special character (!@#$)
                     </span>
                   </div>

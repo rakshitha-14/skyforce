@@ -192,5 +192,58 @@
     "createdAt": "2026-06-21T12:32:31.785Z",
     "updatedAt": "2026-06-21T12:34:15.651Z",
     "isBlocked": true
+  },
+  {
+    "_id": "mock_eoxkhn4inmqnu091r",
+    "name": "Test Tester",
+    "email": "tester_1782049073037@test.com",
+    "password": "$2b$10$hn5RShkXCVS1815Hrp3qIeE3MogNKrO9BfK/HDcJVS5dU4oluL6oC",
+    "role": "Employee",
+    "department": "QA",
+    "designation": "Tester",
+    "isApproved": true,
+    "isRejected": false,
+    "createdAt": "2026-06-21T13:37:53.103Z",
+    "updatedAt": "2026-06-21T13:37:53.412Z"
+  },
+  {
+    "_id": "mock_bhyhpnhawmqnu09e6",
+    "name": "Unapproved Tester",
+    "email": "unapproved_1782049073545@test.com",
+    "password": "$2b$10$P8E11nW1D0zBCen0YObqqeFh7HxvSAPE6sYht95A/OcxRZNP96ZJG",
+    "role": "Employee",
+    "department": "QA",
+    "designation": "Tester",
+    "isApproved": false,
+    "isRejected": false,
+    "createdAt": "2026-06-21T13:37:53.550Z",
+    "updatedAt": "2026-06-21T13:37:53.550Z"
+  },
+  {
+    "_id": "mock_ubd7o21ndmqnu09lm",
+    "name": "Block Tester",
+    "email": "block_1782049073811@test.com",
+    "password": "$2b$10$zQlKgKj3qkpve110DkgsG.cdyhz0UqhCMD4p881TEjo/W21kBotu2",
+    "role": "Employee",
+    "department": "QA",
+    "designation": "Tester",
+    "isApproved": false,
+    "isRejected": false,
+    "createdAt": "2026-06-21T13:37:53.818Z",
+    "updatedAt": "2026-06-21T13:37:54.220Z",
+    "isBlocked": false
+  },
+  {
+    "_id": "mock_fz50gtf38mqnv5fvl",
+    "name": "Test Manager",
+    "email": "testmanager@example.com",
+    "password": "$2b$10$ltFj/dR8u3BMpc7FSSkuA.5PWpWIrC5n3bd92vAVD8vWkOjXq4jnG",
+    "role": "Manager",
+    "department": "Product",
+    "designation": "Lead Manager",
+    "isApproved": true,
+    "isRejected": false,
+    "createdAt": "2026-06-21T14:09:54.849Z",
+    "updatedAt": "2026-06-21T14:10:24.011Z"
   }
 ]

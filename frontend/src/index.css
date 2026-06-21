@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (html:not(.dark) &);
+
 /* Base Overrides for Premium Aesthetic */
 :root {
   font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
@@ -8,8 +11,8 @@
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased selection:bg-blue-600/30 selection:text-blue-300;
-  background-color: #020617; /* Fallback for immediate load */
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-blue-600/30 selection:text-blue-300;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom premium CSS scrollbars */
@@ -33,6 +36,12 @@ body {
 }
 
 /* Dark Mode Global Variables & Fallbacks */
+html {
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 html.dark {
   background-color: #020617;
   color: #f8fafc;

@@ -67,17 +67,17 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
           return (
             <div 
               key={col.id} 
-              className="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col min-h-[500px] shadow-lg"
+              className="bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 rounded-2xl p-4 flex flex-col min-h-[500px] shadow-lg"
             >
               {/* Column Header */}
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-800 light:border-slate-200">
                 <div className="flex items-center gap-2">
                   <span className={`h-2.5 w-2.5 rounded-full ${
                     col.id === 'todo' ? 'bg-slate-400' : col.id === 'in_progress' ? 'bg-blue-500 animate-pulse' : 'bg-emerald-500'
                   }`} />
-                  <h3 className="font-bold text-slate-200 text-sm tracking-wide uppercase">{col.label}</h3>
+                  <h3 className="font-bold text-slate-200 light:text-slate-900 text-sm tracking-wide uppercase">{col.label}</h3>
                 </div>
-                <span className="bg-slate-950 border border-slate-800 text-slate-400 px-2.5 py-0.5 rounded-lg text-xs font-bold font-mono">
+                <span className="bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 text-slate-400 light:text-slate-550 px-2.5 py-0.5 rounded-lg text-xs font-bold font-mono">
                   {colTasks.length}
                 </span>
               </div>
@@ -85,7 +85,7 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
               {/* Task Cards Stack */}
               <div className="flex-grow space-y-3 overflow-y-auto max-h-[600px] pr-1">
                 {colTasks.length === 0 ? (
-                  <div className="text-center py-10 text-slate-600 text-xs border border-dashed border-slate-800 rounded-xl bg-slate-950/30">
+                  <div className="text-center py-10 text-slate-600 light:text-slate-500 text-xs border border-dashed border-slate-800 light:border-slate-200 rounded-xl bg-slate-955/30 light:bg-slate-50/10">
                     No tasks in this stage
                   </div>
                 ) : (
@@ -95,10 +95,10 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
                       <div
                         key={task._id}
                         onClick={() => setSelectedTask(task)}
-                        className={`bg-slate-950 border border-slate-800 hover:border-slate-700 p-4 rounded-xl space-y-3 cursor-pointer shadow hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group`}
+                        className={`bg-slate-955 light:bg-white border border-slate-800 light:border-slate-200 hover:border-slate-700 light:hover:border-slate-300 p-4 rounded-xl space-y-3 cursor-pointer shadow hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group`}
                       >
                         <div className="flex justify-between items-start gap-2">
-                          <span className="text-[10px] bg-slate-900 border border-slate-850 text-slate-400 px-2 py-0.5 rounded-full font-bold uppercase truncate max-w-[120px]">
+                          <span className="text-[10px] bg-slate-900 light:bg-slate-100 border border-slate-850 light:border-slate-200 text-slate-400 light:text-slate-600 px-2 py-0.5 rounded-full font-bold uppercase truncate max-w-[120px]">
                             {task.project?.name || 'No Project'}
                           </span>
                           <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase border flex items-center gap-1 ${priorityStyle.bg}`}>
@@ -107,15 +107,15 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
                           </span>
                         </div>
 
-                        <h4 className="text-sm font-bold text-slate-200 line-clamp-1 group-hover:text-blue-400 transition-colors">
+                        <h4 className="text-sm font-bold text-slate-200 light:text-slate-850 line-clamp-1 group-hover:text-blue-400 transition-colors">
                           {task.title}
                         </h4>
                         
-                        <p className="text-xs text-slate-400 line-clamp-2">
+                        <p className="text-xs text-slate-400 light:text-slate-500 line-clamp-2">
                           {task.description}
                         </p>
 
-                        <div className="flex items-center justify-between pt-3 border-t border-slate-900 text-[11px]">
+                        <div className="flex items-center justify-between pt-3 border-t border-slate-900 light:border-slate-200 text-[11px]">
                           <div className="flex items-center gap-1.5 text-slate-500 font-mono">
                             <Calendar size={12} />
                             <span>{new Date(task.dueDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
@@ -123,7 +123,7 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
 
                           <div className="flex items-center gap-2">
                             {task.status === 'In Review' && (
-                              <span className="bg-purple-950/40 text-purple-400 border border-purple-800/50 px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wide">
+                              <span className="bg-purple-955/40 text-purple-400 border border-purple-800/50 px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wide">
                                 In Review
                               </span>
                             )}
@@ -157,18 +157,18 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setSelectedTask(null)} />
           
-          <div className="relative bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl p-6 shadow-2xl space-y-6 z-10 text-slate-100">
+          <div className="relative bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 w-full max-w-lg rounded-2xl p-6 shadow-2xl space-y-6 z-10 text-slate-100 light:text-slate-900">
             {/* Modal Header */}
-            <div className="flex justify-between items-start pb-4 border-b border-slate-800">
+            <div className="flex justify-between items-start pb-4 border-b border-slate-800 light:border-slate-200">
               <div className="space-y-1">
-                <span className="text-[10px] bg-slate-950 border border-slate-800 text-slate-400 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                <span className="text-[10px] bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 text-slate-400 light:text-slate-600 px-2.5 py-0.5 rounded-full font-bold uppercase">
                   Project: {selectedTask.project?.name || 'Unassigned'}
                 </span>
-                <h3 className="text-lg font-bold text-slate-100 mt-1">{selectedTask.title}</h3>
+                <h3 className="text-lg font-bold text-slate-100 light:text-slate-900 mt-1">{selectedTask.title}</h3>
               </div>
               <button 
                 onClick={() => setSelectedTask(null)}
-                className="text-slate-400 hover:text-slate-200 p-1 rounded-lg hover:bg-slate-800 transition-colors focus:outline-none"
+                className="text-slate-400 hover:text-slate-200 p-1 rounded-lg hover:bg-slate-800 light:hover:bg-slate-100 transition-colors focus:outline-none"
               >
                 <X size={18} />
               </button>
@@ -177,16 +177,16 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
             {/* Modal Content Body */}
             <div className="space-y-4 text-sm">
               <div className="space-y-1.5">
-                <span className="text-xs text-slate-400 font-semibold uppercase">Description</span>
-                <p className="bg-slate-950 border border-slate-800/80 p-3 rounded-xl text-xs text-slate-300 leading-relaxed max-h-[120px] overflow-y-auto">
+                <span className="text-xs text-slate-400 light:text-slate-500 font-semibold uppercase">Description</span>
+                <p className="bg-slate-955 light:bg-slate-50 border border-slate-800/80 light:border-slate-200/80 p-3 rounded-xl text-xs text-slate-300 light:text-slate-700 leading-relaxed max-h-[120px] overflow-y-auto">
                   {selectedTask.description}
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <span className="text-xs text-slate-400 font-semibold uppercase block">Assignee</span>
-                  <div className="flex items-center gap-2.5 bg-slate-950 p-2.5 rounded-xl border border-slate-805">
+                  <span className="text-xs text-slate-400 light:text-slate-500 font-semibold uppercase block">Assignee</span>
+                  <div className="flex items-center gap-2.5 bg-slate-955 light:bg-slate-50 p-2.5 rounded-xl border border-slate-805 light:border-slate-200">
                     <div className="h-7 w-7 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs">
                       {selectedTask.assignedTo ? getInitials(selectedTask.assignedTo.name) : <User size={12} />}
                     </div>
@@ -198,12 +198,12 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xs text-slate-400 font-semibold uppercase block">Task Details</span>
-                  <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-850 space-y-1.5 text-xs">
+                  <span className="text-xs text-slate-400 light:text-slate-500 font-semibold uppercase block">Task Details</span>
+                  <div className="bg-slate-955 light:bg-slate-50 p-2.5 rounded-xl border border-slate-850 light:border-slate-200 space-y-1.5 text-xs">
                     <div className="flex justify-between">
                       <span className="text-slate-500">Priority:</span>
                       <span className={`font-bold uppercase ${
-                        selectedTask.priority === 'High' ? 'text-rose-400' : selectedTask.priority === 'Medium' ? 'text-amber-400' : 'text-blue-400'
+                        selectedTask.priority === 'High' ? 'text-rose-400 light:text-rose-600' : selectedTask.priority === 'Medium' ? 'text-amber-400 light:text-amber-600' : 'text-blue-400 light:text-blue-600'
                       }`}>
                         {selectedTask.priority === 'High' ? 'Critical' : selectedTask.priority === 'Medium' ? 'High' : 'Medium'}
                       </span>
@@ -218,7 +218,7 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
 
               {/* Attachments Section */}
             <div className="space-y-2">
-              <span className="text-xs text-slate-400 font-semibold uppercase block">Attachments</span>
+              <span className="text-xs text-slate-400 light:text-slate-500 font-semibold uppercase block">Attachments</span>
               {selectedTask.attachments && selectedTask.attachments.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {selectedTask.attachments.map((att, i) => (
@@ -227,7 +227,7 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
                       href={`http://localhost:5000${att.fileUrl}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-slate-950 border border-slate-800 text-blue-400 hover:underline px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 cursor-pointer"
+                      className="bg-slate-955 light:bg-slate-50 border border-slate-800 light:border-slate-200 text-blue-400 hover:underline px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 cursor-pointer"
                     >
                       <File size={12} className="text-slate-500" />
                       <span>{att.fileName}</span>
@@ -240,7 +240,7 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
 
             {/* Status Mutator Selector */}
               <div className="space-y-1.5">
-                <span className="text-xs text-slate-400 font-semibold uppercase block">Modify Status</span>
+                <span className="text-xs text-slate-400 light:text-slate-500 font-semibold uppercase block">Modify Status</span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {['To Do', 'In Progress', 'In Review', 'Completed'].map(st => {
                     const isCurrent = selectedTask.status === st;
@@ -251,7 +251,7 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
                         className={`px-2 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
                           isCurrent 
                             ? 'bg-blue-600 text-white shadow-lg' 
-                            : 'bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800/80 hover:text-slate-200'
+                            : 'bg-slate-955 light:bg-slate-50 hover:bg-slate-800 light:hover:bg-slate-100 text-slate-400 light:text-slate-500 border border-slate-800/80 light:border-slate-200 hover:text-slate-200 light:hover:text-slate-900'
                         }`}
                       >
                         {st === 'Completed' ? 'Done' : st}
@@ -263,10 +263,10 @@ const TaskBoard = ({ tasks = [], onUpdateStatus, onAddAttachment }) => {
             </div>
 
             {/* Modal Footer */}
-            <div className="flex justify-end pt-4 border-t border-slate-800">
+            <div className="flex justify-end pt-4 border-t border-slate-800 light:border-slate-200">
               <button
                 onClick={() => setSelectedTask(null)}
-                className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-4 py-2 rounded-xl text-xs transition-colors cursor-pointer"
+                className="bg-slate-800 light:bg-slate-100 hover:bg-slate-700 light:hover:bg-slate-200 text-slate-200 light:text-slate-800 font-bold px-4 py-2 rounded-xl text-xs transition-colors cursor-pointer"
               >
                 Close
               </button>

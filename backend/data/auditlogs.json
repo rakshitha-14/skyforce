@@ -43,5 +43,23 @@
     "ipAddress": "::1",
     "createdAt": "2026-06-21T12:42:03.248Z",
     "updatedAt": "2026-06-21T12:42:03.248Z"
+  },
+  {
+    "_id": "mock_t7bbe6egrmqnu09t4",
+    "userId": "mock_w43kulzx2mqnpr59f",
+    "action": "Blocked user: block_1782049073811@test.com",
+    "module": "Admin Directory",
+    "ipAddress": "::ffff:127.0.0.1",
+    "createdAt": "2026-06-21T13:37:54.088Z",
+    "updatedAt": "2026-06-21T13:37:54.088Z"
+  },
+  {
+    "_id": "mock_wu484fxn0mqnu09wt",
+    "userId": "mock_w43kulzx2mqnpr59f",
+    "action": "Unblocked user: block_1782049073811@test.com",
+    "module": "Admin Directory",
+    "ipAddress": "::ffff:127.0.0.1",
+    "createdAt": "2026-06-21T13:37:54.221Z",
+    "updatedAt": "2026-06-21T13:37:54.221Z"
   }
 ]
