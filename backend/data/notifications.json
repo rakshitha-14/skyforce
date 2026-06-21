@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "mock_j46zd7dgcmqnn0a3u",
+    "recipient": "mock_jc66rgvjgmqnls4q7",
+    "sender": "mock_76n8ap5s6mqnmwvf0",
+    "message": "You have been assigned a new task: \"Build login page API\"",
+    "type": "Task_Assigned",
+    "isRead": true,
+    "createdAt": "2026-06-21T10:21:57.162Z",
+    "updatedAt": "2026-06-21T11:27:43.242Z"
+  },
+  {
+    "_id": "mock_ee0s7u59pmqnn171w",
+    "recipient": "mock_76n8ap5s6mqnmwvf0",
+    "sender": "mock_jc66rgvjgmqnls4q7",
+    "message": "Task \"Build login page API\" status updated to \"In Progress\" by employee ganesh",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T10:22:39.860Z",
+    "updatedAt": "2026-06-21T10:22:39.860Z"
+  },
+  {
+    "_id": "mock_m24b32k3smqnn19fu",
+    "recipient": "mock_76n8ap5s6mqnmwvf0",
+    "sender": "mock_jc66rgvjgmqnls4q7",
+    "message": "Task \"Build login page API\" status updated to \"In Review\" by employee ganesh",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T10:22:42.954Z",
+    "updatedAt": "2026-06-21T10:22:42.954Z"
+  },
+  {
+    "_id": "mock_msmr0d9k3mqnn1g69",
+    "recipient": "mock_76n8ap5s6mqnmwvf0",
+    "sender": "mock_jc66rgvjgmqnls4q7",
+    "message": "Task \"Build login page API\" status updated to \"Completed\" by employee ganesh",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T10:22:51.681Z",
+    "updatedAt": "2026-06-21T10:22:51.681Z"
+  },
+  {
+    "_id": "mock_wyeu600ajmqns1eop",
+    "recipient": "mock_myx0p191hmqnrdkla",
+    "sender": "mock_zpmvoi99wmqnrg76i",
+    "message": "You have been assigned a new task: \"hedie\"",
+    "type": "Task_Assigned",
+    "isRead": false,
+    "createdAt": "2026-06-21T12:42:47.833Z",
+    "updatedAt": "2026-06-21T12:42:47.833Z"
+  },
+  {
+    "_id": "mock_izrwvhbplmqns3574",
+    "recipient": "mock_zpmvoi99wmqnrg76i",
+    "sender": "mock_myx0p191hmqnrdkla",
+    "message": "Task \"hedie\" status updated to \"In Progress\" by employee kumar",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T12:44:08.848Z",
+    "updatedAt": "2026-06-21T12:44:08.848Z"
+  },
+  {
+    "_id": "mock_vax07mm9qmqns3bbv",
+    "recipient": "mock_zpmvoi99wmqnrg76i",
+    "sender": "mock_myx0p191hmqnrdkla",
+    "message": "Task \"hedie\" status updated to \"In Review\" by employee kumar",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T12:44:16.795Z",
+    "updatedAt": "2026-06-21T12:44:16.795Z"
+  },
+  {
+    "_id": "mock_0701wj7memqns3gnl",
+    "recipient": "mock_zpmvoi99wmqnrg76i",
+    "sender": "mock_myx0p191hmqnrdkla",
+    "message": "Task \"hedie\" status updated to \"Completed\" by employee kumar",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T12:44:23.697Z",
+    "updatedAt": "2026-06-21T12:44:23.697Z"
+  }
+]

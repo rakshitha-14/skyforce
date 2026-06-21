@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "mock_rubfv4qccmqnmxp5v",
+    "name": "App devloping",
+    "description": "hello",
+    "manager": "mock_76n8ap5s6mqnmwvf0",
+    "startDate": "2026-06-22",
+    "endDate": "2026-07-24",
+    "attachments": [
+      {
+        "fileName": "efc promts.pdf",
+        "fileUrl": "/uploads/1782037194578-293065802.pdf",
+        "uploadedAt": "2026-06-21T10:19:54.587Z"
+      }
+    ],
+    "createdAt": "2026-06-21T10:19:56.707Z",
+    "updatedAt": "2026-06-21T10:19:56.707Z"
+  },
+  {
+    "_id": "mock_xc4o9xbirmqns0ga6",
+    "name": "api testing",
+    "description": "djv",
+    "manager": "mock_zpmvoi99wmqnrg76i",
+    "startDate": "2026-06-25",
+    "endDate": "2026-06-27",
+    "attachments": [
+      {
+        "fileName": "EF SET Certificate.pdf",
+        "fileUrl": "/uploads/1782045720554-743280921.pdf",
+        "uploadedAt": "2026-06-21T12:42:00.588Z"
+      }
+    ],
+    "createdAt": "2026-06-21T12:42:03.246Z",
+    "updatedAt": "2026-06-21T12:42:03.246Z"
+  }
+]

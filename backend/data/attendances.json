@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "mock_nwot1qq7mmqnm8enp",
+    "user": "mock_jc66rgvjgmqnls4q7",
+    "date": "2026-06-21",
+    "checkIn": "2026-06-21T10:00:16.692Z",
+    "status": "Late",
+    "createdAt": "2026-06-21T10:00:16.693Z",
+    "updatedAt": "2026-06-21T10:00:20.555Z",
+    "checkOut": "2026-06-21T10:00:20.554Z",
+    "workHours": null
+  },
+  {
+    "_id": "mock_jgn2g76utmqns2tzc",
+    "user": "mock_myx0p191hmqnrdkla",
+    "date": "2026-06-21",
+    "checkIn": "2026-06-21T12:43:54.311Z",
+    "status": "Late",
+    "createdAt": "2026-06-21T12:43:54.312Z",
+    "updatedAt": "2026-06-21T12:44:41.105Z",
+    "checkOut": "2026-06-21T12:44:41.105Z",
+    "workHours": null
+  }
+]
