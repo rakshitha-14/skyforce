@@ -363,6 +363,6 @@ This project is for educational and demonstration purposes.
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻 Author.
 
 **Rakshitha** — [GitHub @rakshitha-14](https://github.com/rakshitha-14)
