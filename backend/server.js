@@ -7,6 +7,11 @@ const User = require('./models/User');
 // Load env vars
 dotenv.config();
 
+if (!process.env.JWT_SECRET) {
+  process.env.JWT_SECRET = 'SkyForceLocalDevSecret123!';
+  console.warn('⚠️  WARNING: JWT_SECRET is not set. Using a local default secret. Set JWT_SECRET in .env for production.');
+}
+
 const createDefaultAdmin = async () => {
   const defaultAdminEmail = process.env.DEFAULT_ADMIN_EMAIL || 'admin@example.com';
   const defaultAdminPassword = process.env.DEFAULT_ADMIN_PASSWORD || 'Admin@123';

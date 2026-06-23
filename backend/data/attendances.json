@@ -20,5 +20,16 @@
     "updatedAt": "2026-06-21T12:44:41.105Z",
     "checkOut": "2026-06-21T12:44:41.105Z",
     "workHours": null
+  },
+  {
+    "_id": "mock_y39y1qbzzmqo19aua",
+    "user": "mock_t05vc75zzmqo0v9g6",
+    "date": "2026-06-21",
+    "checkIn": "2026-06-21T17:00:52.641Z",
+    "status": "Late",
+    "createdAt": "2026-06-21T17:00:52.642Z",
+    "updatedAt": "2026-06-21T17:03:12.618Z",
+    "checkOut": "2026-06-21T17:03:12.617Z",
+    "workHours": null
   }
 ]

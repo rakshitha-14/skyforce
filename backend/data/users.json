@@ -33,7 +33,8 @@
     "designation": "engineering",
     "isApproved": true,
     "createdAt": "2026-06-21T11:45:35.709Z",
-    "updatedAt": "2026-06-21T11:46:36.304Z"
+    "updatedAt": "2026-06-21T16:51:55.912Z",
+    "isBlocked": false
   },
   {
     "_id": "mock_43icpvc3ymqnqctsd",
@@ -245,5 +246,31 @@
     "isRejected": false,
     "createdAt": "2026-06-21T14:09:54.849Z",
     "updatedAt": "2026-06-21T14:10:24.011Z"
+  },
+  {
+    "_id": "mock_cr0y60ii8mqo03jgn",
+    "name": "surya",
+    "email": "surya123@gmail.com",
+    "password": "$2b$10$KcUXZUL52LhBOdotcq9OS.xqRd3yPOAldaF/t4KN51wI0cYgcKrLC",
+    "role": "Employee",
+    "department": "engineering",
+    "designation": "software engineer",
+    "isApproved": false,
+    "isRejected": false,
+    "createdAt": "2026-06-21T16:28:24.263Z",
+    "updatedAt": "2026-06-21T16:28:24.263Z"
+  },
+  {
+    "_id": "mock_t05vc75zzmqo0v9g6",
+    "name": "arjun",
+    "email": "arjun113@gmail.com",
+    "password": "$2b$10$7SdR4Zqvjhd9kpfRFk26b.EjTQg.HHwVJ8wsvPbuNtGruhCY13zqy",
+    "role": "Employee",
+    "department": "btech",
+    "designation": "software",
+    "isApproved": true,
+    "isRejected": false,
+    "createdAt": "2026-06-21T16:49:57.654Z",
+    "updatedAt": "2026-06-21T16:51:11.477Z"
   }
 ]

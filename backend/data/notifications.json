@@ -78,5 +78,45 @@
     "isRead": false,
     "createdAt": "2026-06-21T12:44:23.697Z",
     "updatedAt": "2026-06-21T12:44:23.697Z"
+  },
+  {
+    "_id": "mock_klozhmcsmmqo18gga",
+    "recipient": "mock_t05vc75zzmqo0v9g6",
+    "sender": "mock_zpmvoi99wmqnrg76i",
+    "message": "You have been assigned a new task: \"draft\"",
+    "type": "Task_Assigned",
+    "isRead": true,
+    "createdAt": "2026-06-21T17:00:13.258Z",
+    "updatedAt": "2026-06-21T17:02:48.075Z"
+  },
+  {
+    "_id": "mock_uc6zu1pyxmqo1a4e6",
+    "recipient": "mock_zpmvoi99wmqnrg76i",
+    "sender": "mock_t05vc75zzmqo0v9g6",
+    "message": "Task \"draft\" status updated to \"In Progress\" by employee arjun",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T17:01:30.942Z",
+    "updatedAt": "2026-06-21T17:01:30.942Z"
+  },
+  {
+    "_id": "mock_aequnwn0bmqo1a5wv",
+    "recipient": "mock_zpmvoi99wmqnrg76i",
+    "sender": "mock_t05vc75zzmqo0v9g6",
+    "message": "Task \"draft\" status updated to \"In Review\" by employee arjun",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T17:01:32.911Z",
+    "updatedAt": "2026-06-21T17:01:32.911Z"
+  },
+  {
+    "_id": "mock_o58mmudbpmqo1a7oz",
+    "recipient": "mock_zpmvoi99wmqnrg76i",
+    "sender": "mock_t05vc75zzmqo0v9g6",
+    "message": "Task \"draft\" status updated to \"Completed\" by employee arjun",
+    "type": "Project_Update",
+    "isRead": false,
+    "createdAt": "2026-06-21T17:01:35.219Z",
+    "updatedAt": "2026-06-21T17:01:35.219Z"
   }
 ]

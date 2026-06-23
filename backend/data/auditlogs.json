@@ -61,5 +61,32 @@
     "ipAddress": "::ffff:127.0.0.1",
     "createdAt": "2026-06-21T13:37:54.221Z",
     "updatedAt": "2026-06-21T13:37:54.221Z"
+  },
+  {
+    "_id": "mock_664h242evmqo0xmle",
+    "userId": "mock_w43kulzx2mqnpr59f",
+    "action": "Blocked user: ganesh@gmail.com",
+    "module": "Admin Directory",
+    "ipAddress": "::1",
+    "createdAt": "2026-06-21T16:51:48.002Z",
+    "updatedAt": "2026-06-21T16:51:48.002Z"
+  },
+  {
+    "_id": "mock_1iwc8enqzmqo0xsp5",
+    "userId": "mock_w43kulzx2mqnpr59f",
+    "action": "Unblocked user: ganesh@gmail.com",
+    "module": "Admin Directory",
+    "ipAddress": "::1",
+    "createdAt": "2026-06-21T16:51:55.913Z",
+    "updatedAt": "2026-06-21T16:51:55.913Z"
+  },
+  {
+    "_id": "mock_zp3dehi0ymqo15mdg",
+    "userId": "mock_zpmvoi99wmqnrg76i",
+    "action": "Created project \"demo\"",
+    "module": "Projects",
+    "ipAddress": "::1",
+    "createdAt": "2026-06-21T16:58:00.964Z",
+    "updatedAt": "2026-06-21T16:58:00.964Z"
   }
 ]

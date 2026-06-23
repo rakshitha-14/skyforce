@@ -36,5 +36,24 @@
     ],
     "createdAt": "2026-06-21T12:42:47.831Z",
     "updatedAt": "2026-06-21T12:44:23.695Z"
+  },
+  {
+    "_id": "mock_w4g3rk3p1mqo18gg9",
+    "project": "mock_zq531uwi6mqo15mde",
+    "title": "draft",
+    "description": "just build front end",
+    "assignedTo": "mock_t05vc75zzmqo0v9g6",
+    "status": "Completed",
+    "priority": "Medium",
+    "dueDate": "2026-06-30",
+    "attachments": [
+      {
+        "fileName": "Enterprise Project & Workforce Management System project development workflow.pdf",
+        "fileUrl": "/uploads/1782061210010-863809332.pdf",
+        "uploadedAt": "2026-06-21T17:00:10.021Z"
+      }
+    ],
+    "createdAt": "2026-06-21T17:00:13.257Z",
+    "updatedAt": "2026-06-21T17:01:35.216Z"
   }
 ]
